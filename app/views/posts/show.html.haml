@@ -1,0 +1,22 @@
+.container-fluid.p-5.m-5 
+  .card.mx-auto.mb-4{:style => "width: 40rem;"}
+    %img.card-img-top{alt: "...", src: "..."}/
+    .card-body.mb-5
+      %h5.card-title= @post.title
+      %p.card-text= @post.content
+    .card-action-btn.row 
+      .card-action-btn-edit.col-6
+        = link_to edit_post_path(@post) do
+          %button.btn{:type => "button"}
+            %i.fas.fa-edit.fa-2x{:style => "color: #a9a9a9;"}
+      .card-action-btn-delete.col-6
+        = link_to post_path(@post), data: { method: 'delete', confirm: '本当に削除しますか' } do
+          %button.btn{:type => "button"}
+            %i.fas.fa-trash-alt.fa-2x{:style => "color: #a9a9a9;"}
+    %ul.list-group.list-group-flush
+      %li.list-group-item An item
+      %li.list-group-item A second item
+      %li.list-group-item A third item
+    .card-body
+      %a.card-link{href: "#"} Card link
+      %a.card-link{href: "#"} Another link
