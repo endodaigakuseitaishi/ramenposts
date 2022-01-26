@@ -30,16 +30,21 @@
                 = link_to root_path do
                   %button.btn{:type => "button"}
                     %i.fas.fa-home
-            %li.nav-item.col-2
-              .profile-btn 
+            - if user_signed_in?
+              %li.nav-item.col-2
+                .profile-btn 
+                  %button.btn.btn-danger{type: "button"}
+                    プロフィール
+              %li.nav-item.col-2
+                %button.btn.btn-danger{type: "button"} 
+                  = link_to 'ログアウト', destroy_user_session_path, class: 'text-decoration-none', data: { method: 'delete' }
+              %li.nav-item.col-2
                 %button.btn.btn-danger{type: "button"}
-                  プロフィール
-            %li.nav-item.col-2
-              %button.btn.btn-danger{type: "button"} 
-                ログイン
-            %li.nav-item.col-2
-              %button.btn.btn-danger{type: "button"} 
-                お気に入り
+                  お気に入り
+            - else 
+              .login-btn.row
+                %button.btn.btn-danger{type: "button"}
+                  = link_to 'ログイン', new_user_session_path, class: 'text-decoration-none'
 
     - if flash.present?
       .flash
