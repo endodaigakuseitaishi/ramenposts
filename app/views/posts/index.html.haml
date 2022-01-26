@@ -10,7 +10,9 @@
           %p.card-text= post.content
         %ul.list-group.list-group-flush
           %li.list-group-item An item
-          %li.list-group-item A second item
+          %li.list-group-item.text-center
+            %p{style: "opacity: 0.4;"} コメントが#{post.comment_count}件あります
+            %i.far.fa-comment.fa-2x
           %li.list-group-item A third item
         .card-body.row
           .card-bady-first.col-6

@@ -16,6 +16,7 @@
 #
 class Post < ApplicationRecord
   belongs_to :user
+  has_many :comments, dependent: :destroy
 
   validates :title, length: { minimum: 2 }
   validates :content, length: { maximum: 140 }
@@ -26,5 +27,9 @@ class Post < ApplicationRecord
 
   def author_name
     user.display_name
+  end
+
+  def comment_count
+    comments.count
   end
 end
