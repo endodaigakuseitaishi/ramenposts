@@ -27,6 +27,7 @@ gem 'jbuilder', '~> 2.7'
 
 gem 'bootstrap'
 gem 'hamlit'
+gem 'annotate'
 
 # Reduces boot times through caching; required in config/boot.rb
 gem 'bootsnap', '>= 1.4.2', require: false
