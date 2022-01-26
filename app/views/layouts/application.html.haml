@@ -7,5 +7,35 @@
     = csp_meta_tag
     = stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload'
     = javascript_pack_tag 'application', 'data-turbolinks-track': 'reload'
+    = stylesheet_pack_tag 'application', 'data-turbolinks-track': 'reload'
   %body
+    %nav.navbar.navbar-expand-lg.navbar-light.fixed-top.bg-info.z-index:2
+      .container-fluid.row
+        %p.navbar-brand.col-2 
+          = image_tag 'default-avatar.png', class: "rounded-circle", size: "50x50"
+        %button.navbar-toggler{"aria-controls" => "navbarNav", "aria-expanded" => "false", "aria-label" => "Toggle navigation", "data-bs-target" => "#navbarNav", "data-bs-toggle" => "collapse", :type => "button"}
+          %span.navbar-toggler-icon
+        #navbarNav.collapse.navbar-collapse
+          %ul.navbar-nav
+            %li.nav-item.col-2
+              %a.nav-link{"aria-current" => "page", :href => "#"} 新着一覧
+            %li.nav-item.col-2
+              %a.nav-link{:href => "#"} タイムライン
+            %li.nav-item.col-2
+              %a.nav-link{:href => "#"} ランキング
+            %li.nav-item.col-2
+              -# - unless current_page?(root_path)
+              -#   = link_to root_path do
+                  %button.btn{:type => "button"}
+                    %i.fas.fa-home
+            %li.nav-item.col-2
+              .profile-btn 
+                %button.btn.btn-danger{type: "button"}
+                  プロフィール
+            %li.nav-item.col-2
+              %button.btn.btn-danger{type: "button"} 
+                ログイン
+            %li.nav-item.col-2
+              %button.btn.btn-danger{type: "button"} 
+                お気に入り
     = yield
