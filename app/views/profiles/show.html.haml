@@ -1,0 +1,22 @@
+.container.p-5.m-5
+  .card{style: "width: 70rem;"}
+    - if @profile.avatar.attached?
+      = image_tag current_user.profile.avatar, class: "rounded-circle", size: "50x50"
+    - else
+      = image_tag 'default-avatar.png', class: "rounded-circle", size: "50x50"
+    .card-body-profile.mb-5
+      .card-user-name.row
+        %h4.mb-3.col-6= current_user.display_name
+        %p.col-6 #{[current_user.email]}
+      %p.m-0= @profile.introduction
+      %p.m-auto{style: "opacity: 0.6;"}= @profile.age
+    .card-body.row
+      .card-body-edit.col-6
+        %button.btn.btn-danger{type: "button"}
+          = link_to '編集', edit_profile_path, class: 'text-decoration-none'
+      .card-body-other.col-6
+        %a.card-link{href: "#"} Another link
+
+  .card-body-show-my-post.m-5
+    - current_user.posts.each do |post|
+      = render 'posts/post', post: post

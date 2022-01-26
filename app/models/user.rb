@@ -23,12 +23,23 @@ class User < ApplicationRecord
          :recoverable, :rememberable, :validatable
 
   has_many :posts, dependent: :destroy
+  has_one :profile, dependent: :destroy
+
+  delegate :birthday, :introduction, :age, to: :prof, allow_nil: true
 
   def has_written?(post)
     posts.exists?(id: post.id)
   end
 
   def display_name
-    self.email.split('@').first
+    if profile && profile.nickname
+      profile.nickname 
+    else
+      self.email.split('@').first
+    end
+  end
+
+  def prepare_profile
+    profile || build_profile
   end
 end

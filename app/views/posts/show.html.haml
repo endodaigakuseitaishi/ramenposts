@@ -1,8 +1,13 @@
 .container-fluid.p-5.m-5 
   .card.mx-auto.mb-4{:style => "width: 40rem;"}
     .card-post-information.row
-      %p.col-6= @post.author_name
-      %p.col-6= @post.display_created_at
+      %p.col-4
+        - if current_user.profile.avatar.attached?
+          = image_tag current_user.profile.avatar, class: "rounded-circle", size: "50x50"
+        - else
+          = image_tag 'default-avatar.png', class: "rounded-circle", size: "50x50"
+      %p.col-4= @post.author_name
+      %p.col-4= @post.display_created_at
     .card-body.mb-5
       %h5.card-title= @post.title
       %p.card-text= @post.content
