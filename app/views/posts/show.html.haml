@@ -1,11 +1,12 @@
 .container-fluid.p-5.m-5 
   .card.mx-auto.mb-4{:style => "width: 40rem;"}
-    %img.card-img-top{alt: "...", src: "..."}/
+    .card-post-information.row
+      %p.col-6= @post.author_name
+      %p.col-6= @post.display_created_at
     .card-body.mb-5
       %h5.card-title= @post.title
-      %p= @post.display_created_at
       %p.card-text= @post.content
-    - if user_signed_in?
+    - if user_signed_in? && current_user.has_written?(@post)
       .card-action-btn.row 
         .card-action-btn-edit.col-6
           = link_to edit_post_path(@post) do

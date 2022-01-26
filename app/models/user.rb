@@ -21,4 +21,14 @@ class User < ApplicationRecord
   # :confirmable, :lockable, :timeoutable, :trackable and :omniauthable
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable
+
+  has_many :posts, dependent: :destroy
+
+  def has_written?(post)
+    posts.exists?(id: post.id)
+  end
+
+  def display_name
+    self.email.split('@').first
+  end
 end
