@@ -3,10 +3,7 @@
     = link_to post_path(post), {class: "text-decoration-none text-secondary "} do
       .card.mx-auto.mb-4{:style => "width: 40rem;"}
         .card-post-information.row.mx-auto
-          - if post.user.present?
-            %p.col-6= post.user.display_name
-          - else 
-            %p.col-6 Unknown user
+          %p.col-6= post.author_name
           %p.col-6= post.display_created_at
         .card-body.mb-5
           %h5.card-title= post.title
