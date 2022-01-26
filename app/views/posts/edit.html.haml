@@ -1,0 +1,20 @@
+.container.p-5.m-5
+  %ul
+    - @post.errors.full_messages.each do |message|
+      %li= message
+  = link_to :back, class:'back-btn' do
+    %i.fas.fa-arrow-circle-left.fa-2x{:style => "color: #80808080;"}
+  = form_with(model: @post, url: post_path(@post), method: 'put', local: true) do |f|
+    %div
+      = f.label :eyecatch, 'アイキャッチ'
+    %div
+      = f.file_field :eyecatch
+    %div
+      = f.label :title, 'タイトル'
+    %div
+      = f.text_field :title, class: 'text'
+    %div
+      = f.label :content, '内容'
+    %div
+      = f.text_area :content
+    = f.submit '保存', class: 'btn-primary pr-5 pl-5'

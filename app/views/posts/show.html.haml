@@ -4,6 +4,10 @@
     .card-body.mb-5
       %h5.card-title= @post.title
       %p.card-text= @post.content
+    .card-action-btn.row 
+      = link_to edit_post_path(@post) do
+        %button.btn{:type => "button"}
+          %i.fas.fa-edit.fa-2x
     %ul.list-group.list-group-flush
       %li.list-group-item An item
       %li.list-group-item A second item
