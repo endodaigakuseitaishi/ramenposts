@@ -5,9 +5,14 @@
       %h5.card-title= @post.title
       %p.card-text= @post.content
     .card-action-btn.row 
-      = link_to edit_post_path(@post) do
-        %button.btn{:type => "button"}
-          %i.fas.fa-edit.fa-2x
+      .card-action-btn-edit.col-6
+        = link_to edit_post_path(@post) do
+          %button.btn{:type => "button"}
+            %i.fas.fa-edit.fa-2x{:style => "color: #a9a9a9;"}
+      .card-action-btn-delete.col-6
+        = link_to post_path(@post), data: { method: 'delete', confirm: '本当に削除しますか' } do
+          %button.btn{:type => "button"}
+            %i.fas.fa-trash-alt.fa-2x{:style => "color: #a9a9a9;"}
     %ul.list-group.list-group-flush
       %li.list-group-item An item
       %li.list-group-item A second item

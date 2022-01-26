@@ -35,6 +35,12 @@ class PostsController < ApplicationController
     end
   end
 
+  def destroy
+    post = Post(params[:id])
+    post.destroy!
+    redirect_to root_path, notice: '削除成功'
+  end
+
   private 
   def post_params
     params.require(:post).permit(:title, :content)
