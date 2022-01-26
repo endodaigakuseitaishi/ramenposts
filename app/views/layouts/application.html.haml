@@ -7,7 +7,9 @@
     = csp_meta_tag
     = stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload'
     = javascript_pack_tag 'application', 'data-turbolinks-track': 'reload'
+    %meta{:content => "width=device-width, initial-scale=1.0", :name => "viewport"}/
     = stylesheet_pack_tag 'application', 'data-turbolinks-track': 'reload'
+    %link{:href => "https://use.fontawesome.com/releases/v5.6.1/css/all.css", :rel => "stylesheet"}/
   %body
     %nav.navbar.navbar-expand-lg.navbar-light.fixed-top.bg-info.z-index:2
       .container-fluid.row
@@ -24,8 +26,8 @@
             %li.nav-item.col-2
               %a.nav-link{:href => "#"} ランキング
             %li.nav-item.col-2
-              -# - unless current_page?(root_path)
-              -#   = link_to root_path do
+              - unless current_page?(root_path)
+                = link_to root_path do
                   %button.btn{:type => "button"}
                     %i.fas.fa-home
             %li.nav-item.col-2
@@ -38,4 +40,9 @@
             %li.nav-item.col-2
               %button.btn.btn-danger{type: "button"} 
                 お気に入り
+
+    - if flash.present?
+      .flash
+        - flash.each do |key, value|
+          %div{class: key}= value
     = yield
