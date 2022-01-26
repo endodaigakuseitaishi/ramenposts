@@ -1,14 +1,15 @@
 .container-fulid.p-5.m-5
   - @posts.each do |post|
-    .card.mx-auto.mb-4{:style => "width: 40rem;"}
-      %img.card-img-top{alt: "...", src: "..."}/
-      .card-body.mb-5
-        %h5.card-title= post.title
-        %p.card-text= post.content
-      %ul.list-group.list-group-flush
-        %li.list-group-item An item
-        %li.list-group-item A second item
-        %li.list-group-item A third item
-      .card-body
-        %a.card-link{href: "#"} Card link
-        %a.card-link{href: "#"} Another link
+    = link_to post_path(post), {class: "text-decoration-none text-secondary "} do
+      .card.mx-auto.mb-4{:style => "width: 40rem;"}
+        %img.card-img-top{alt: "...", src: "..."}/
+        .card-body.mb-5
+          %h5.card-title= post.title
+          %p.card-text= post.content
+        %ul.list-group.list-group-flush
+          %li.list-group-item An item
+          %li.list-group-item A second item
+          %li.list-group-item A third item
+        .card-body
+          %a.card-link{href: "#"} Card link
+          %a.card-link{href: "#"} Another link
