@@ -18,10 +18,11 @@
               %i.fas.fa-trash-alt.fa-2x{:style => "color: #a9a9a9;"}
     %ul.list-group.list-group-flush
       %li.list-group-item An item
-      %li.list-group-item A second item
+      %li.list-group-item.text-center
+        %p{style: "opacity: 0.4;"} コメントが#{@post.comment_count}件あります
+        %i.far.fa-comment.fa-2x
       %li.list-group-item A third item
-    .card-body-comment
-    .card-body.row
+    .card-body-comment.row
       .card-body-first.col-6
         = link_to  new_post_comment_path(@post) do
           %button.btn.btn-outline-primary{type: "button"} 
