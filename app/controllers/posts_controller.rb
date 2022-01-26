@@ -34,7 +34,7 @@ class PostsController < ApplicationController
   end
 
   def destroy
-    post = Post(params[:id])
+    post = Post.find(params[:id])
     post.destroy!
     redirect_to root_path, notice: '削除成功'
   end
