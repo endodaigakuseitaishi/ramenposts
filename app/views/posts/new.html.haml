@@ -1,4 +1,6 @@
 .container.p-5.m-5
+  = link_to :back, class:'back-btn' do
+    %i.fas.fa-arrow-circle-left.fa-2x{:style => "color: #80808080;"}
   = form_with(model: @post, url: posts_path, method: 'post', local: true) do |f|
     %div
       = f.label :eyecatch, 'アイキャッチ'
