@@ -5,14 +5,17 @@
         %img.card-img-top{alt: "...", src: "..."}/
         .card-body.mb-5
           %h5.card-title= post.title
+          %p= post.display_created_at
           %p.card-text= post.content
         %ul.list-group.list-group-flush
           %li.list-group-item An item
           %li.list-group-item A second item
           %li.list-group-item A third item
-        .card-body
-          %a.card-link{href: "#"} Card link
-          %a.card-link{href: "#"} Another link
+        .card-body.row
+          .card-bady-first.col-6
+            %a.card-link{href: "#"} Card link
+          .card-bady-second.col-6
+            %a.card-link{href: "#"} Another link
   
   = link_to new_post_path do
     %button.btn.fixed-bottom{:type => "button"}
