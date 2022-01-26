@@ -43,8 +43,8 @@
                   お気に入り
             - else 
               .login-btn.row
-                %button.btn.btn-danger{type: "button"}, class: 'text-decoration-none col-5'
-                = link_to 'ログイン', new_user_session_path, class: 'text-decoration-none'
+                %button.btn.btn-danger{type: "button"}
+                  = link_to 'ログイン', new_user_session_path, class: 'text-decoration-none'
 
     - if flash.present?
       .flash
