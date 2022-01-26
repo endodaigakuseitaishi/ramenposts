@@ -3,6 +3,7 @@
     %img.card-img-top{alt: "...", src: "..."}/
     .card-body.mb-5
       %h5.card-title= @post.title
+      %p= @post.display_created_at
       %p.card-text= @post.content
     .card-action-btn.row 
       .card-action-btn-edit.col-6
