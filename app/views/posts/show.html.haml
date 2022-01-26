@@ -20,8 +20,11 @@
       %li.list-group-item An item
       %li.list-group-item A second item
       %li.list-group-item A third item
+    .card-body-comment
     .card-body.row
-      .card-bady-first.col-6
-        %a.card-link{href: "#"} Card link
-      .card-bady-second.col-6
-        %a.card-link{href: "#"} Another link
+      .card-body-first.col-6
+        = link_to  new_post_comment_path(@post) do
+          %button.btn.btn-outline-primary{type: "button"} 
+            コメント
+      .card-body-second.col-6
+        %a.card-link{:href => "#"} Another link

@@ -3,7 +3,7 @@
 # Table name: comments
 #
 #  id         :integer          not null, primary key
-#  comment    :text             not null
+#  content    :text             not null
 #  created_at :datetime         not null
 #  updated_at :datetime         not null
 #  post_id    :integer          not null
