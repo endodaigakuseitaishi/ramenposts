@@ -2,7 +2,7 @@
   .card.mx-auto.mb-4{:style => "width: 40rem;"}
     .card-post-information.row
       %p.col-4
-        - if current_user.profile.avatar.attached?
+        - if current_user.profile&.avatar&.attached?
           = image_tag current_user.profile.avatar, class: "rounded-circle", size: "50x50"
         - else
           = image_tag 'default-avatar.png', class: "rounded-circle", size: "50x50"
@@ -27,10 +27,14 @@
             %button.btn{:type => "button"}
               %i.fas.fa-trash-alt.fa-2x{:style => "color: #a9a9a9;"}
     %ul.list-group.list-group-flush
-      %li.list-group-item An item
+      %li.list-group-item.text-center
+        %p 星評価
+        %i.far.fa-star
       %li.list-group-item.text-center
         %p{style: "opacity: 0.4;"} コメントが#{@post.comment_count}件あります
-        %i.far.fa-comment.fa-2x
+        = link_to  new_post_comment_path(@post) do
+          %button.btn{type: "button"} 
+            %i.far.fa-comment.fa-2x
       %li.list-group-item.text-center 
         %p{style: "opacity: 0.4;"} 「いいね！」#{@post.like_count}件
         - if user_signed_in?
@@ -42,8 +46,6 @@
               = image_tag 'heart.svg'
     .row
       .card-body-first.col-6
-        = link_to  new_post_comment_path(@post) do
-          %button.btn.btn-outline-primary{type: "button"} 
-            コメント
+        %a.card-link{:href => "#"} Another link
       .card-body-second.col-6
         %a.card-link{:href => "#"} Another link
