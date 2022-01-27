@@ -1,6 +1,6 @@
 .container.p-5.m-5
   .card{style: "width: 70rem;"}
-    - if @profile.avatar.attached?
+    - if @profile&.avatar&.attached?
       = image_tag current_user.profile.avatar, class: "rounded-circle", size: "50x50"
     - else
       = image_tag 'default-avatar.png', class: "rounded-circle", size: "50x50"
@@ -8,8 +8,8 @@
       .card-user-name.row
         %h4.mb-3.col-6= current_user.display_name
         %p.col-6 #{[current_user.email]}
-      %p.m-0= @profile.introduction
-      %p.m-auto{style: "opacity: 0.6;"}= @profile.age
+      %p.m-0= @profile&.introduction
+      %p.m-auto{style: "opacity: 0.6;"}= @profile&.age
     .card-body.row
       .card-body-edit.col-6
         %button.btn.btn-danger{type: "button"}
