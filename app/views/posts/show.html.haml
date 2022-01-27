@@ -26,7 +26,9 @@
       %li.list-group-item.text-center
         %p{style: "opacity: 0.4;"} コメントが#{@post.comment_count}件あります
         %i.far.fa-comment.fa-2x
-      %li.list-group-item A third item
+      %li.list-group-item.text-center 
+        = link_to post_like_path(@post), data: { method: 'post' } do
+          = image_tag 'heart.svg'
     .card-body-comment.row
       .card-body-first.col-6
         = link_to  new_post_comment_path(@post) do
