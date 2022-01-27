@@ -6,19 +6,22 @@
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
 
-aiko = User.create!(email: 'aiko@gmail.com', password: 'password')
-kiyo = User.create!(email: 'kiyo@gmail.com', password: 'password')
+
+shuta = User.create!(email: 'shuta@gmail.com', password: 'password')
+keigo = User.create!(email: 'keigo@gmail.com', password: 'password')
 
 5.times do
-  aiko.posts.create!(
+  shuta.posts.create!(
     title: Faker::Lorem.sentence(word_count: 5),
-    content: Faker::Lorem.sentence(word_count: 20)
+    content: Faker::Lorem.sentence(word_count: 100)
   )
 end
 
 5.times do
-  kiyo.posts.create!(
+  keigo.posts.create!(
     title: Faker::Lorem.sentence(word_count: 5),
-    content: Faker::Lorem.sentence(word_count: 20)
+    content: Faker::Lorem.sentence(word_count: 100)
   )
 end
+
+

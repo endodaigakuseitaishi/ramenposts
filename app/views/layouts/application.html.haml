@@ -11,7 +11,7 @@
     = stylesheet_pack_tag 'application', 'data-turbolinks-track': 'reload'
     %link{:href => "https://use.fontawesome.com/releases/v5.6.1/css/all.css", :rel => "stylesheet"}/
   %body
-    %nav.navbar.navbar-expand-lg.navbar-light.fixed-top.bg-info.text-center.z-index:2
+    %nav.navbar.navbar-expand-lg.navbar-light.fixed-top.bg-secondary.text-center.z-index:2
       .container-fluid.row
         %button.navbar-toggler{"aria-controls" => "navbarNav", "aria-expanded" => "false", "aria-label" => "Toggle navigation", "data-bs-target" => "#navbarNav", "data-bs-toggle" => "collapse", :type => "button"}
           %span.navbar-toggler-icon
@@ -31,17 +31,17 @@
             - if user_signed_in?
               %li.nav-item.col-2
                 .profile-btn 
-                  %button.btn.btn-danger{type: "button"}
+                  %button.btn.btn-outline-primary{type: "button"}
                     = link_to 'プロフィール', profile_path, class: 'text-decoration-none'
               %li.nav-item.col-2
-                %button.btn.btn-danger{type: "button"} 
+                %button.btn.btn-outline-primary{type: "button"} 
                   = link_to 'ログアウト', destroy_user_session_path, class: 'text-decoration-none', data: { method: 'delete' }
               %li.nav-item.col-2
-                %button.btn.btn-danger{type: "button"}
-                  お気に入り
+                %button.btn.btn-outline-primary{type: "button"}
+                  = link_to 'お気に入り', favorites_path, class: 'text-decoration-none'
             - else 
               .login-btn.row
-                %button.btn.btn-danger{type: "button"}
+                %button.btn.btn-outline-primary{type: "button"}
                   = link_to 'ログイン', new_user_session_path, class: 'text-decoration-none'
 
     - if flash.present?

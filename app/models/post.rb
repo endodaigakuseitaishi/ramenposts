@@ -15,9 +15,12 @@
 #  index_posts_on_user_id  (user_id)
 #
 class Post < ApplicationRecord
+
+  has_one_attached :eyecatch
   belongs_to :user
   has_many :comments, dependent: :destroy
   has_one_attached :avatar
+  has_many :likes, dependent: :destroy
 
   validates :title, length: { minimum: 2 }
   validates :content, length: { maximum: 140 }
@@ -32,5 +35,9 @@ class Post < ApplicationRecord
 
   def comment_count
     comments.count
+  end
+
+  def like_count
+    likes.count
   end
 end

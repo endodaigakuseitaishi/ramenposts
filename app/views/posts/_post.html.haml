@@ -7,15 +7,25 @@
         = image_tag 'default-avatar.png', class: "rounded-circle", size: "50x50"
     %p.col-4= post.author_name
     %p.col-4= post.display_created_at
-  .card-body.pb-5
+  .card-body.pb-5.text-center
+    - if post.eyecatch.attached?
+      = image_tag post.eyecatch, size: "200x150"
+    - else
+      .text-center
+        %div{style: "padding: 30px; margin-bottom: 30px; border: 1px dashed #333333; border-radius: 5px;"} 画像がありません
     %h5.card-title= post.title
     %p.card-text= post.content
   %ul.list-group.list-group-flush
-    %li.list-group-item An item
     %li.list-group-item.text-center
+      %p 星評価
+      %i.far.fa-star
+    %li.list-group-item.text-center
+      %p{style: "opacity: 0.4;"} 「いいね！」#{post.like_count}件
+      = image_tag 'heart.svg'
+
+    %li.list-group-item.text-center 
       %p{style: "opacity: 0.4;"} コメントが#{post.comment_count}件あります
       %i.far.fa-comment.fa-2x
-    %li.list-group-item A third item
   .card-body.row
     .card-bady-first.col-6
       %a.card-link{href: "#"} Card link
