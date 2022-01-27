@@ -25,6 +25,7 @@ class User < ApplicationRecord
   has_many :posts, dependent: :destroy
   has_one :profile, dependent: :destroy
   has_many :likes, dependent: :destroy
+  has_many :favorite_posts, through: :likes, source: :post
 
   delegate :birthday, :introduction, :age, to: :prof, allow_nil: true
 
@@ -47,5 +48,5 @@ class User < ApplicationRecord
   def has_liked?(post)
     likes.exists?(post_id: post.id)
   end
-  
+
 end

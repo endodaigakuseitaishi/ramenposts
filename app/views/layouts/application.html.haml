@@ -38,7 +38,7 @@
                   = link_to 'ログアウト', destroy_user_session_path, class: 'text-decoration-none', data: { method: 'delete' }
               %li.nav-item.col-2
                 %button.btn.btn-danger{type: "button"}
-                  お気に入り
+                  = link_to 'お気に入り', favorites_path, class: 'text-decoration-none'
             - else 
               .login-btn.row
                 %button.btn.btn-danger{type: "button"}
