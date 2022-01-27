@@ -24,6 +24,7 @@ class User < ApplicationRecord
 
   has_many :posts, dependent: :destroy
   has_one :profile, dependent: :destroy
+  has_many :likes, dependent: :destroy
 
   delegate :birthday, :introduction, :age, to: :prof, allow_nil: true
 
