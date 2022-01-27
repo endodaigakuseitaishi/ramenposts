@@ -27,6 +27,9 @@ class User < ApplicationRecord
   has_many :likes, dependent: :destroy
   has_many :favorite_posts, through: :likes, source: :post
 
+  has_many :following_relationships, foreign_key: 'follower_id', class_name: 'Relationship', dependent: :destroy
+  has_many :followings, through: :following_relationships, source: :following
+
   delegate :birthday, :introduction, :age, to: :prof, allow_nil: true
 
   def has_written?(post)
@@ -47,6 +50,10 @@ class User < ApplicationRecord
 
   def has_liked?(post)
     likes.exists?(post_id: post.id)
+  end
+
+  def follow!(user)
+    following_relationships.create!(following_id: user.id)
   end
 
 end
