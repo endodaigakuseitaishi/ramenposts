@@ -13,9 +13,12 @@
   %ul.list-group.list-group-flush
     %li.list-group-item An item
     %li.list-group-item.text-center
+      %p{style: "opacity: 0.4;"} 「いいね！」#{post.like_count}件
+      = image_tag 'heart.svg'
+
+    %li.list-group-item.text-center 
       %p{style: "opacity: 0.4;"} コメントが#{post.comment_count}件あります
       %i.far.fa-comment.fa-2x
-    %li.list-group-item A third item
   .card-body.row
     .card-bady-first.col-6
       %a.card-link{href: "#"} Card link

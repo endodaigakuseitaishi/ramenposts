@@ -34,4 +34,8 @@ class Post < ApplicationRecord
   def comment_count
     comments.count
   end
+
+  def like_count
+    likes.count
+  end
 end

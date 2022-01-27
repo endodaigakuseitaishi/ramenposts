@@ -27,9 +27,14 @@
         %p{style: "opacity: 0.4;"} コメントが#{@post.comment_count}件あります
         %i.far.fa-comment.fa-2x
       %li.list-group-item.text-center 
-        = link_to post_like_path(@post), data: { method: 'post' } do
-          = image_tag 'heart.svg'
-    .card-body-comment.row
+        %p{style: "opacity: 0.4;"} 「いいね！」#{@post.like_count}件
+        - if user_signed_in?
+          - if current_user.has_liked?(@post)
+            = link_to post_like_path(@post), data: { method: 'delete' } do
+              = image_tag 'heart-active.svg'
+          -else
+            = link_to post_like_path(@post), data: { method: 'post' } do
+              = image_tag 'heart.svg'
       .card-body-first.col-6
         = link_to  new_post_comment_path(@post) do
           %button.btn.btn-outline-primary{type: "button"} 
