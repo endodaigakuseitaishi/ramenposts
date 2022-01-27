@@ -9,6 +9,11 @@
       %p.col-4= @post.author_name
       %p.col-4= @post.display_created_at
     .card-body.mb-5
+      - if @post.eyecatch.attached?
+        = image_tag @post.eyecatch, size: "200x150" 
+      - else
+        .text-center
+          %div{style: "padding: 30px; margin-bottom: 30px; border: 1px dashed #333333; border-radius: 5px;"} 画像がありません
       %h5.card-title= @post.title
       %p.card-text= @post.content
     - if user_signed_in? && current_user.has_written?(@post)
@@ -35,6 +40,7 @@
           -else
             = link_to post_like_path(@post), data: { method: 'post' } do
               = image_tag 'heart.svg'
+    .row
       .card-body-first.col-6
         = link_to  new_post_comment_path(@post) do
           %button.btn.btn-outline-primary{type: "button"} 
