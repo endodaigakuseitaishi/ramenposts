@@ -16,9 +16,14 @@
           %button.btn.btn-danger{type: "button"}
             = link_to '編集', edit_profile_path, class: 'text-decoration-none'
       - else
-        .card-body-edit.col-6
-          %button.btn.btn-danger{type: "button"}
-            = link_to 'フォローする'
+        - if current_user&.has_followed?(user)
+          .card-body-other.col-6
+            %button.btn.btn-danger{type: "button"}
+              = link_to 'フォロー中', account_follows_path(user), class: 'text-decoration-none', data: { method: 'delete' } 
+        - else
+          .card-body-other.col-6
+            %button.btn.btn-danger{type: "button"}
+              = link_to 'フォローする', account_follows_path(user), class: 'text-decoration-none', data: { method: 'post' } 
       .card-body-other.col-6
         %a.card-link{href: "#"} Another link
 
