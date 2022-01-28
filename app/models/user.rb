@@ -33,7 +33,7 @@ class User < ApplicationRecord
   has_many :follower_relationships, foreign_key: 'following_id', class_name: 'Relationship', dependent: :destroy
   has_many :followers, through: :follower_relationships, source: :follower 
 
-  delegate :birthday, :introduction, :age, to: :prof, allow_nil: true
+  delegate :birthday, :introduction, :age, to: :profile, allow_nil: true
 
   def has_written?(post)
     posts.exists?(id: post.id)
