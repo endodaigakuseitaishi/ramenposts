@@ -17,16 +17,7 @@
           %div{style: "padding: 30px; margin-bottom: 30px; border: 1px dashed #333333; border-radius: 5px;"} 画像がありません
       %h5.card-title= @post.title
       %p.card-text= @post.content
-    - if user_signed_in? && current_user.has_written?(@post)
-      .card-action-btn.row 
-        .card-action-btn-edit.col-6
-          = link_to edit_post_path(@post) do
-            %button.btn{:type => "button"}
-              %i.fas.fa-edit.fa-2x{:style => "color: #a9a9a9;"}
-        .card-action-btn-delete.col-6
-          = link_to post_path(@post), data: { method: 'delete', confirm: '本当に削除しますか' } do
-            %button.btn{:type => "button"}
-              %i.fas.fa-trash-alt.fa-2x{:style => "color: #a9a9a9;"}
+    = render 'commons/option', post: @post
     %ul.list-group.list-group-flush
       %li.list-group-item.text-center
         %p 星評価
