@@ -21,6 +21,7 @@ class Post < ApplicationRecord
   has_many :comments, dependent: :destroy
   has_one_attached :avatar
   has_many :likes, dependent: :destroy
+  has_many :liked_users, through: :likes, source: :user
 
   validates :title, length: { minimum: 2 }
   validates :content, length: { maximum: 140 }

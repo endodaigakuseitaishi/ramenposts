@@ -22,7 +22,7 @@
             %li.nav-item.col-4{class: "#{add_active_class(timeline_path)}"}
               = link_to 'タイムライン', timeline_path, class: 'text-decoration-none text-secondary' 
             %li.nav-item.col-4
-              %a.nav-link{:href => "#"} ランキング
+              = link_to 'ランキング', ranks_path, class: 'text-decoration-none text-secondary' 
             %li.nav-item.col-4
               - unless current_page?(root_path)
                 = link_to root_path do

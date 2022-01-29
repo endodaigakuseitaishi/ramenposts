@@ -1,0 +1,10 @@
+- if user_signed_in? && current_user.has_written?(post)
+  .card-action-btn.row 
+    .card-action-btn-edit.col-6
+      = link_to edit_post_path(post) do
+        %button.btn{:type => "button"}
+          %i.fas.fa-edit.fa-2x{:style => "color: #a9a9a9;"}
+    .card-action-btn-delete.col-6
+      = link_to post_path(post), data: { method: 'delete', confirm: '本当に削除しますか' } do
+        %button.btn{:type => "button"}
+          %i.fas.fa-trash-alt.fa-2x{:style => "color: #a9a9a9;"}
