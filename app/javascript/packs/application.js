@@ -19,6 +19,10 @@ require('bootstrap'); // Bootstrapを追加
 // const images = require.context('../images', true)
 // const imagePath = (name) => images(name, true)
 
+import $ from 'jquery'
+
 document.addEventListener('DOMContentLoaded', () => {
-  window.alert('DOM LOADED')
+  $('.card-text').on('click', () => {
+    window.alert('CLICKED')
+  })
 })
