@@ -17,9 +17,9 @@
           %span.navbar-toggler-icon
         #navbarNav.collapse.navbar-collapse
           %ul.navbar-nav
-            %li.nav-item.col-4
-              = link_to '新着一覧', timeline_path, class: 'text-decoration-none text-secondary'
-            %li.nav-item.col-4
+            %li.nav-item.col-4.active{class: "#{add_active_class(root_path)}"}
+              = link_to '新着一覧', root_path, class: 'text-decoration-none text-secondary'
+            %li.nav-item.col-4.active{class: "#{add_active_class(timeline_path)}"}
               = link_to 'タイムライン', timeline_path, class: 'text-decoration-none text-secondary' 
             %li.nav-item.col-4
               %a.nav-link{:href => "#"} ランキング
