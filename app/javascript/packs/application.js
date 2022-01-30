@@ -22,7 +22,7 @@ require('bootstrap'); // Bootstrapを追加
 import $ from 'jquery'
 import axios from 'axios'
 
-document.addEventListener('DOMContentLoaded', () => {
+document.addEventListener('turbolinks:load', () => {
   $('.card-text').on('click', () => {
     axios.get('/')
       .then((response) => {
