@@ -20,9 +20,13 @@ require('bootstrap'); // Bootstrapを追加
 // const imagePath = (name) => images(name, true)
 
 import $ from 'jquery'
+import axios from 'axios'
 
 document.addEventListener('DOMContentLoaded', () => {
   $('.card-text').on('click', () => {
-    window.alert('CLICKED')
+    axios.get('/')
+      .then((response) => {
+        console.log(response)
+      })
   })
 })
