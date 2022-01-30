@@ -31,11 +31,9 @@
         %p{style: "opacity: 0.4;"} 「いいね！」#{@post.like_count}件
         - if user_signed_in?
           .post-heart.hidden.active-heart
-            = link_to post_like_path(@post), data: { method: 'delete' } do
-              = image_tag 'heart-active.svg'
+            = image_tag 'heart-active.svg'
           .post-heart.hidden.inactive-heart
-            = link_to post_like_path(@post), data: { method: 'post' } do
-              = image_tag 'heart.svg'
+            = image_tag 'heart.svg'
     .row
       .card-body-first.col-6
         %a.card-link{:href => "#"} Another link
