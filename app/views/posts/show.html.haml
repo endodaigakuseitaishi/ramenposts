@@ -30,10 +30,10 @@
       %li.list-group-item.text-center 
         %p{style: "opacity: 0.4;"} 「いいね！」#{@post.like_count}件
         - if user_signed_in?
-          - if current_user.has_liked?(@post)
+          .post-heart.hidden.active-heart
             = link_to post_like_path(@post), data: { method: 'delete' } do
               = image_tag 'heart-active.svg'
-          -else
+          .post-heart.hidden.inactive-heart
             = link_to post_like_path(@post), data: { method: 'post' } do
               = image_tag 'heart.svg'
     .row
