@@ -23,10 +23,10 @@ import $ from 'jquery'
 import axios from 'axios'
 
 document.addEventListener('turbolinks:load', () => {
-  $('.card-text').on('click', () => {
-    axios.get('/')
-      .then((response) => {
-        console.log(response)
-      })
-  })
+  const dataset = $('#post-show').data()
+  const postId = dataset.postId
+  axios.get(`/posts/${postId}/like`)
+    .then((response) => {
+      console.log(response)
+    })
 })
