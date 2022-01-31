@@ -1,4 +1,4 @@
-.container-fluid.p-5.m-5 
+.container-fluid.p-5.m-5#post-show{data: {post_id: @post.id}}
   .card.mx-auto.mb-4{:style => "width: 40rem;"}
     .card-post-information.row
       %p.col-4
@@ -30,14 +30,14 @@
       %li.list-group-item.text-center 
         %p{style: "opacity: 0.4;"} 「いいね！」#{@post.like_count}件
         - if user_signed_in?
-          - if current_user.has_liked?(@post)
-            = link_to post_like_path(@post), data: { method: 'delete' } do
-              = image_tag 'heart-active.svg'
-          -else
-            = link_to post_like_path(@post), data: { method: 'post' } do
-              = image_tag 'heart.svg'
+          .post-heart.hidden.active-heart
+            = image_tag 'heart-active.svg'
+          .post-heart.hidden.inactive-heart
+            = image_tag 'heart.svg'
     .row
       .card-body-first.col-6
         %a.card-link{:href => "#"} Another link
       .card-body-second.col-6
         %a.card-link{:href => "#"} Another link
+
+= javascript_pack_tag 'post'
