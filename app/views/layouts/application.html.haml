@@ -27,7 +27,7 @@
               - unless current_page?(root_path)
                 = link_to root_path do
                   %button.btn{:type => "button"}
-                    %i.fas.fa-home
+                    %i.fas.fa-home.fa-2x
             - if user_signed_in?
               %li.nav-item.col-4
                 .profile-btn 
@@ -39,9 +39,11 @@
                   %button.btn{type: "button"} 
                     %i.fas.fa-sign-out-alt.fa-2x
               %li.nav-item.col-4
-                = link_to  favorites_path, class: 'text-decoration-none' do
-                  %button.btn{type: "button"}
-                    %i.far.fa-bookmark.fa-2x
+                %dl.searchbox
+                  = search_form_for @search, url: posts_path do |f|
+                    %form.d-flex
+                      %input.form-control.me-2{"aria-label" => "Search", placeholder: "Search", type: "title_cont"}
+                      %button.btn{type: "submit"} Search  
             - else
               .login-btn
                 = link_to new_user_session_path, class: 'text-decoration-none' do
